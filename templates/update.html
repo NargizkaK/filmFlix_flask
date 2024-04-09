@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block content %}
+<h1>Update Film</h1>
+<form method="post">
+<label for="filmId">Film ID</label>
+<input type="number" name="filmID" value="{{film['filmID']}}" disabled>    
+<label for="title">Title</label>
+<input type="text" name="title" value="{{film['title']}}">
+<label for="year">Year Released</label>
+<input type="number" name="year" value="{{film['yearReleased']}}">
+<label for="rating">Rating</label>
+<input type="text"name="rating" value="{{film['rating']}}">
+<label for="duration">Duration</label>
+<input type="number"name="duration" value="{{film['duration']}}">
+<label for="genre">Genre</label>
+<input type="text"name="genre" value="{{film['genre']}}">
+<br> 
+<button type="submit">Update</button>   
+</form>
+{% endblock %}

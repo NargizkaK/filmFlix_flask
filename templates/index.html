@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
+    <title>{{ title }}</title>
+<head>
+<body>
+    <header> 
+        <h1>FilmFlix Flask</h1>
+    </header>
+
+    <button>
+        <a href= "{{url_for('add')}}" class="link">Add film</a>
+    </button>
+    
+  
+ 
+  
+
+    
+
+    {% block content %}
+    <h1>Welcome</h1>
+    <hr>
+    {% for film in films %}
+    <h2>{{film['title']}}</h2>
+    <p>{{film['filmID']}}</p>
+    <p>{{film['genre']}}</p>
+    <p>{{film['rating']}}</p>
+    <p>{{film['yearReleased']}}</p>
+
+   
+    <button>
+    <a href= "{{url_for('update', film_id=film['filmID'])}}" 
+    class="link">Update film</a> 
+    </button>
+
+    <form action="{{url_for('delete', film_id = film['filmID'])}}" method = "POST">
+        <input type="submit" value="Delete Film" onclick="return confirm('Are you sure you want to delete this film?')">
+    </form>
+    <hr>
+    {% endfor %}
+
+    {% endblock %}
+</body>
+</html>
